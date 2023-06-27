@@ -1,4 +1,17 @@
-\documentclass[compress,12pt]{beamer}
+\documentclass[compress,17pt]{beamer}
+
+\usepackage{tikz-cd}
+\usepackage{tikz}
+
+
+\newenvironment{diagram}{\begin{center}\begin{tikzcd}[ampersand replacement=\&, column sep=small, font=\LARGE]}{\end{tikzcd}\end{center}}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
 \usetheme{Arguelles}
 
 \title{Infinity and Beyond}
@@ -8,21 +21,58 @@
 
 \beamertemplatenavigationsymbolsempty
 
+\tikzcdset{every label/.append style = {font = \large}}
+
 
 \begin{document}
+
+
+% Intuition
+% We have some intuition about infinity but it remains mysterious
+% Math can clarify these issues
+
+\frame{\titlepage}
+
+
+% Sets are the vehicle we can use to make infinity precise.
 \begin{frame}
-  \titlepage
+  \frametitle{Sets}
+  \{890, "foo", $f$, $\pi$\} \\
+  \{1,2,3,4\} \\
+  \{\tikz\draw[red,fill=red] (0,0) circle (.5ex);,\tikz\draw[blue,fill=blue] (0,0) circle (.5ex);,\tikz\draw[green,fill=green] (0,0) circle (.5ex);\} \\
+  \{\} \\
+\end{frame}
+
+\begin{frame}
+  \frametitle{What does it mean to say two sets are the same size?}
 \end{frame}
 
 
-% \section{Section 1}
-% \subsection{sub a}
-fooboo
+
+% \begin{frame}
+%   $\N = \{1,2,3,4,5,6,7,8,9,10,\dots\}$
+% \end{frame}
+
 
 \begin{frame}
   \frametitle{Title}
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 \end{frame}
+
+\begin{frame}
+  \begin{align*}
+    \{1,2,3,4,5,6,\dots\} \\
+    \{1,2,3,4,5,6,\dots\}
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \begin{diagram}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& \dots \} \\
+    \{ 1, \& 2, \& 3, \& 4, \& \dots \}
+  \end{diagram}
+\end{frame}
+
 
 
 
