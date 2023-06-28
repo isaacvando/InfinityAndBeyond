@@ -4,7 +4,7 @@
 \usepackage{tikz}
 
 
-\newenvironment{diagram}{\begin{center}\begin{tikzcd}[ampersand replacement=\&, column sep=small, font=\LARGE]}{\end{tikzcd}\end{center}}
+\newenvironment{diagram}{\begin{center}\begin{tikzcd}[ampersand replacement=\&, column sep=small, font=\small]}{\end{tikzcd}\end{center}}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -21,7 +21,7 @@
 
 \beamertemplatenavigationsymbolsempty
 
-\tikzcdset{every label/.append style = {font = \large}}
+% \tikzcdset{every label/.append style = {font = \small}}
 
 
 \begin{document}
@@ -35,29 +35,67 @@
 
 
 % Sets are the vehicle we can use to make infinity precise.
+% finite sets
 \begin{frame}
   \frametitle{Sets}
-  \{890, "foo", $f$, $\pi$\} \\
-  \{1,2,3,4\} \\
-  \{\tikz\draw[red,fill=red] (0,0) circle (.5ex);,\tikz\draw[blue,fill=blue] (0,0) circle (.5ex);,\tikz\draw[green,fill=green] (0,0) circle (.5ex);\} \\
   \{\} \\
+  \{\tikz\draw[red,fill=red] (0,0) circle (.5ex);,\tikz\draw[blue,fill=blue] (0,0) circle (.5ex);,\tikz\draw[green,fill=green] (0,0) circle (.5ex);\} \\
+  \{1,2,3,4\} \\
+  \{890, ``foo'', $\pi$\} \\
 \end{frame}
 
+% infinite sets
 \begin{frame}
-  \frametitle{What does it mean to say two sets are the same size?}
+  \frametitle{Infinite Sets}
+  $\N = \{1,2,3,4,5,6,7,8,9,10,\dots\} $
+  $\Z = \{0,-1,1,-2,2,-3,3,-4,4,-5,5,\dots\}$
+  $\Q = \{0,1,2,\frac12, 3, 4, \frac32, \frac23, \frac14, \frac15, 5, 6, \frac52, \dots\}$
+\end{frame}
+\begin{frame}
+  \frametitle{Infinite Sets}
+  \{ every possible book \} \\
+  \{ every possible book that starts with ``supercalifragilisticexpialidocious''\} \\
+  \{ every point on a circle \} \\
+  \{ every possible board game \} \\
+  \{ every color \} \\
+  \{ every triangle \}
 \end{frame}
 
+% How do we say two sets are the same size?
+\begin{frame}{Size}
+  How can we tell if two sets are the same size? \pause
+  Just count them!
+\end{frame}
 
+\begin{frame}{Size}
+  \{Porto, Columbia, Nashville, Denver\} \\
+  \{ cherries, grapefruit, apples, kiwis \}
+\end{frame}
 
-% \begin{frame}
-%   $\N = \{1,2,3,4,5,6,7,8,9,10,\dots\}$
+\begin{frame}{Size}
+  \begin{diagram}
+    1 \arrow[d, leftrightarrow] \& 2 \arrow[d, leftrightarrow] \& 3 \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow] \\
+    \{ Porto, \& Columbia, \& Nashville, \& Denver \}
+  \end{diagram}
+
+  \begin{diagram}
+    1 \arrow[d, leftrightarrow] \& 2 \arrow[d, leftrightarrow] \& 3 \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow] \\
+    \{ cherries, \& grapefruit, \& apples, \& kiwis \}
+  \end{diagram} \pause
+\end{frame}
+
+\begin{frame}{Size}
+  4 = 4 \\ \pause
+  \# cities = \# fruits
+\end{frame}
+
+% \begin{frame}{Size}
+%   \begin{diagram}
+%     \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow] \} \\
+%     \{ Angela, \& Don, \& Sonia, \& Jordan \}
+%   \end{diagram}
 % \end{frame}
 
-
-\begin{frame}
-  \frametitle{Title}
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-\end{frame}
 
 \begin{frame}
   \begin{align*}
