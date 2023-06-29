@@ -4,6 +4,7 @@
 \usepackage{tikz}
 
 
+
 \newenvironment{diagram}{\begin{center}\begin{tikzcd}[ampersand replacement=\&, column sep=small, font=\small]}{\end{tikzcd}\end{center}}
 
 \newcommand{\N}{\mathbb{N}}
@@ -12,10 +13,24 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
+\usepackage[normalem]{ulem}
+\newcommand\hl{\bgroup\markoverwith
+    {\textcolor{yellow}{\rule[-.5ex]{.1pt}{2.5ex}}}\ULon}
+
+\newcommand{\polygon}[1]{
+  \begin{tikzpicture}
+    \def\n{#1} % Number of sides
+    \def\radius{0.3cm} % Radius of the polygon
+    \pgfmathsetmacro\angle{360/\n}
+    \foreach \i in {1,...,\n} {
+      \draw (360/\n*\i:\radius) -- (360/\n*\i+\angle:\radius);
+    }
+  \end{tikzpicture}
+}
+
 \usetheme{Arguelles}
 
 \title{Infinity and Beyond}
-% \subtitle{Reaching}
 \author{Isaac Van Doren}
 \date{\today}
 
@@ -37,28 +52,36 @@
 % Sets are the vehicle we can use to make infinity precise.
 % finite sets
 \begin{frame}
-  \frametitle{Sets}
-  \{\} \\
-  \{\tikz\draw[red,fill=red] (0,0) circle (.5ex);,\tikz\draw[blue,fill=blue] (0,0) circle (.5ex);,\tikz\draw[green,fill=green] (0,0) circle (.5ex);\} \\
-  \{1,2,3,4\} \\
+  \frametitle{Finite Sets} \pause
+  \{\} \\ \pause
+  \{\tikz\draw[red,fill=red] (0,0) circle (.5ex);,\tikz\draw[blue,fill=blue] (0,0) circle (.5ex);,\tikz\draw[green,fill=green] (0,0) circle (.5ex);\} \\ \pause
+
+  \{1,2,3,4\} \\ \pause
   \{890, ``foo'', $\pi$\} \\
 \end{frame}
 
 % infinite sets
 \begin{frame}
-  \frametitle{Infinite Sets}
-  $\N = \{1,2,3,4,5,6,7,8,9,10,\dots\} $
-  $\Z = \{0,-1,1,-2,2,-3,3,-4,4,-5,5,\dots\}$
+  \frametitle{Infinite Sets} \pause
+  $\N = \{1,2,3,4,5,6,7,8,9,10,\dots\} $ \pause
+  $\Z = \{0,-1,1,-2,2,-3,3,-4,4,-5,5,\dots\}$ \pause
   $\Q = \{0,1,2,\frac12, 3, 4, \frac32, \frac23, \frac14, \frac15, 5, 6, \frac52, \dots\}$
 \end{frame}
 \begin{frame}
-  \frametitle{Infinite Sets}
-  \{ every possible book \} \\
-  \{ every possible book that starts with ``supercalifragilisticexpialidocious''\} \\
-  \{ every point on a circle \} \\
-  \{ every possible board game \} \\
-  \{ every color \} \\
+  \frametitle{Infinite Sets} \pause
+  \{ every possible book \} \\ \pause
+  \{ every possible book that starts with ``supercalifragilisticexpialidocious''\} \\ \pause
+  \{ every point on a circle \} \\ \pause
+  \{ every possible board game \} \\ \pause
+  \{ every color \} \\ \pause
   \{ every triangle \}
+\end{frame}
+
+\begin{frame}{Subsets} \pause
+  $\{1,2,3\} \subseteq \{1,2,3,4,5\}$ \pause
+  $\{700,543,\frac12\} \not\subseteq \{1,3,5,700\}$ \pause
+
+  $\{\} \subseteq \{0,1\}$
 \end{frame}
 
 % How do we say two sets are the same size?
@@ -74,19 +97,38 @@
 
 \begin{frame}{Size}
   \begin{diagram}
-    1 \arrow[d, leftrightarrow] \& 2 \arrow[d, leftrightarrow] \& 3 \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow] \\
+    1 \arrow[d, leftrightarrow] \& 2 \arrow[d, leftrightarrow] \& 3 \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow]  \\
     \{ Porto, \& Columbia, \& Nashville, \& Denver \}
   \end{diagram}
 
   \begin{diagram}
     1 \arrow[d, leftrightarrow] \& 2 \arrow[d, leftrightarrow] \& 3 \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow] \\
     \{ cherries, \& grapefruit, \& apples, \& kiwis \}
-  \end{diagram} \pause
+  \end{diagram}
 \end{frame}
 
 \begin{frame}{Size}
   4 = 4 \\ \pause
   \# cities = \# fruits
+\end{frame}
+
+\begin{frame}{Size}
+  \begin{diagram}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow] \} \\
+    \{ Porto, \& Columbia, \& Nashville, \& Denver \}
+  \end{diagram}
+
+  \begin{diagram}
+    \{1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow] \} \\
+    \{ cherries, \& grapefruit, \& apples, \& kiwis \}
+  \end{diagram}
+\end{frame}
+
+\begin{frame}{Size}
+  \begin{diagram}
+    \{Porto, \arrow[d, leftrightarrow] \& Columbia, \arrow[d, leftrightarrow] \& Nashville, \arrow[d, leftrightarrow] \& Denver \arrow[d, leftrightarrow] \} \\
+    \{ cherries, \& grapefruit, \& apples, \& kiwis \}
+  \end{diagram}
 \end{frame}
 
 % \begin{frame}{Size}
@@ -97,22 +139,286 @@
 % \end{frame}
 
 
-\begin{frame}
-  \begin{align*}
-    \{1,2,3,4,5,6,\dots\} \\
-    \{1,2,3,4,5,6,\dots\}
-  \end{align*}
-\end{frame}
+% \begin{frame}
+%   \begin{align*}
+%     \{1,2,3,4,5,6,\dots\} \\
+%     \{1,2,3,4,5,6,\dots\}
+%   \end{align*}
+% \end{frame}
 
-\begin{frame}
+\begin{frame}{Generalization}
+  \pause
   \begin{diagram}
-    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& \dots \} \\
-    \{ 1, \& 2, \& 3, \& 4, \& \dots \}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& 5, \arrow[d, leftrightarrow] \& \dots \} \\
+    \{ ., \& \polygon{2}, \& \polygon{3}, \& \polygon{4}, \& \polygon{5}, \& \dots \}
   \end{diagram}
 \end{frame}
 
 
+% \begin{frame}[standout]
+%   \centering\LARGE
+%   Surprise \#1
+% \end{frame}
 
+\begin{frame}{Surprise \#1 - Subsets}
+  \centering
+  $\{1,2\} \subseteq \{1,2,3,4\}$ \pause
+
+  \begin{diagram}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3,  \& 4, \} \\
+    \{ 1, \& 2 \}
+  \end{diagram}
+\end{frame}
+
+\begin{frame}{Surprise \#1 - Subsets}
+  \centering
+  $\{3,4,5,6,7,\dots\} \subseteq \{1,2,3,4,5,\dots\}$ \pause
+
+  \begin{diagram}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& 5, \arrow[d, leftrightarrow] \& \dots \} \\
+    \{ 3, \& 4, \& 5, \& 6, \& 7, \& \dots \}
+  \end{diagram}
+\end{frame}
+
+\begin{frame}{Surprise \#1 - Subsets}
+  \centering \pause
+  $\{2,4,6,8,10,\dots\} \subseteq \{1,2,3,4,5,\dots\}$ \pause
+
+  \begin{diagram}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& 5, \arrow[d, leftrightarrow] \& \dots \} \\
+    \{ 2, \& 4, \& 6, \& 8, \& 10, \& \dots \}
+  \end{diagram}
+\end{frame}
+
+\begin{frame}{Surprise \#1 - Subsets}
+  \centering
+  $\{1,4,9,16,25,\dots\} \subseteq \{1,2,3,4,5,\dots\}$ \pause
+
+  \begin{diagram}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& 5, \arrow[d, leftrightarrow] \& \dots \} \\
+    \{ 1, \& 4, \& 9, \& 16, \& 25, \& \dots \}
+  \end{diagram}
+\end{frame}
+
+\begin{frame}{Surprise \#1 - Subsets}
+  \centering
+  $\{1,4,9,16,25,\dots\} \subseteq \{1,2,3,4,5,\dots\}$ \pause
+
+  \begin{diagram}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& 5, \arrow[d, leftrightarrow] \& \dots \} \\
+    \{ 1, \& 4, \& 9, \& 16, \& 25, \& \dots \}
+  \end{diagram}
+\end{frame}
+
+
+\begin{frame}{Surprise \#1 - Subsets}
+  \centering
+  $\{1,32,243,1024,3125,\dots\} \subseteq \{1,2,3,4,5,\dots\}$ \pause
+
+  \begin{diagram}
+    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& 5, \arrow[d, leftrightarrow] \& \dots \} \\
+    \{ 1, \& 32, \& 243, \& 1024, \& 3125, \& \dots \}
+  \end{diagram}
+\end{frame}
+
+
+\begin{frame}{Surprise \#1 - Subsets}
+  \centering
+  So infinity is infinity is infinity then... right? \pause
+  No!
+\end{frame}
+
+
+\begin{frame}[standout]
+  There are different sized infinities!
+\end{frame}
+
+\begin{frame}{Surprise \#2 - Sizes}
+  The Cantor Set \\
+  $2^\omega$ = \{00000000\dots, 111111111\dots, 10101010\dots, 00110100\dots, 11111010\dots, \dots\}\\
+  = {all infinite binary sequences} \\ \pause
+  \vphantom{text}
+
+  Can we count it?
+\end{frame}
+
+\begin{frame}{Surprise \#2 - Sizes}
+  The Cantor Set \\
+  $2^\omega$ = \{00000000\dots, 111111111\dots, 10101010\dots, 00110100\dots, 11111010\dots, \dots\}\\
+  = {all infinite binary sequences} \\ \pause
+  \vphantom{text}
+
+  Can we count it? \pause No, we can't?!
+\end{frame}
+
+\begin{frame}[standout]
+  \large
+  Cantor's Diagonal Argument
+\end{frame}
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    &  \\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    &  \hl 0 \\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & \hl 1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    &  0 & \hl 1 \\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & \hl 0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    &  0 & 1 & \hl 0 \\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & \hl 1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    &  0 & 1 & 0 & \hl 0 \\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & \hl 1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    &  0 & 1 & 0 & 0 & \hl 0 \\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & \hl 1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    &  0 & 1 & 0 & 0 & 0 & \hl 0\\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & \hl 1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    & 0 & 1 & 0 & 0 & 0 & 0 & \hl 1 \\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & 0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & 1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & 1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & 1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & \hl 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
+
+
+\begin{frame}
+  \begin{tabular}{ | c | c c c c c c c c c }
+    \hline
+    & \hl 0 & \hl 1 & \hl 0 & \hl 0 & \hl 0 & \hl 0 & \hl 1 \\
+    \hline
+      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & $\cdots$\\
+      \hline
+    1 & \hl1 & 0 & 0 & 1 & 0 & 0 & 0 & $\cdots$\\
+    2 & 0 & \hl0 & 0 & 1 & 1 & 1 & 1 & $\cdots$\\
+    3 & 0 & 1 & \hl1 & 1 & 0 & 0 & 1 & $\cdots$\\
+    4 & 0 & 0 & 1 & \hl1 & 0 & 0 & 0 & $\cdots$\\
+    5 & 1 & 1 & 1 & 0 & \hl1 & 0 & 0 & $\cdots$\\
+    6 & 0 & 1 & 0 & 1 & 0 & \hl1 & 0 & $\cdots$\\
+    7 & 0 & 0 & 0 & 0 & 1 & 0 & \hl 0 & $\cdots$\\
+    $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & $\vdots$ & \\
+  \end{tabular}
+\end{frame}
 
 % Outline
 
@@ -153,15 +459,3 @@
 
 
 \end{document}
-
-
-% Infinity and What Lies Beyond
-% To Infinity and Beyond
-% Grasping Infinity
-% Comprehending Infinity
-% Walking Past Infinity
-% Going Beyond Infinity
-% What Lies Beyond Infinity
-% What Comes After Infinity
-% Infinity and Beyond
-
