@@ -5,7 +5,7 @@
 
 
 
-\newenvironment{diagram}{\begin{center}\begin{tikzcd}[ampersand replacement=\&, column sep=small, font=\small]}{\end{tikzcd}\end{center}}
+\newenvironment{diagram}{\begin{tikzcd}[ampersand replacement=\&, column sep=small, font=\small]}{\end{tikzcd}}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -86,16 +86,19 @@
 
 % How do we say two sets are the same size?
 \begin{frame}{Size}
+  \centering
   How can we tell if two sets are the same size? \pause
   Just count them!
 \end{frame}
 
 \begin{frame}{Size}
+  \centering
   \{Porto, Columbia, Nashville, Denver\} \\
   \{ cherries, grapefruit, apples, kiwis \}
 \end{frame}
 
 \begin{frame}{Size}
+  \centering
   \begin{diagram}
     1 \arrow[d, leftrightarrow] \& 2 \arrow[d, leftrightarrow] \& 3 \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow]  \\
     \{ Porto, \& Columbia, \& Nashville, \& Denver \}
@@ -108,11 +111,13 @@
 \end{frame}
 
 \begin{frame}{Size}
+  \centering
   4 = 4 \\ \pause
   \# cities = \# fruits
 \end{frame}
 
 \begin{frame}{Size}
+  \centering
   \begin{diagram}
     \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4 \arrow[d, leftrightarrow] \} \\
     \{ Porto, \& Columbia, \& Nashville, \& Denver \}
@@ -125,6 +130,7 @@
 \end{frame}
 
 \begin{frame}{Size}
+  \centering
   \begin{diagram}
     \{Porto, \arrow[d, leftrightarrow] \& Columbia, \arrow[d, leftrightarrow] \& Nashville, \arrow[d, leftrightarrow] \& Denver \arrow[d, leftrightarrow] \} \\
     \{ cherries, \& grapefruit, \& apples, \& kiwis \}
@@ -161,7 +167,7 @@
 % \end{frame}
 
 \begin{frame}{Surprise \#1 - Subsets}
-  \centering
+  \centering \pause
   $\{1,2\} \subseteq \{1,2,3,4\}$ \pause
 
   \begin{diagram}
@@ -181,22 +187,12 @@
 \end{frame}
 
 \begin{frame}{Surprise \#1 - Subsets}
-  \centering \pause
+  \centering
   $\{2,4,6,8,10,\dots\} \subseteq \{1,2,3,4,5,\dots\}$ \pause
 
   \begin{diagram}
     \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& 5, \arrow[d, leftrightarrow] \& \dots \} \\
     \{ 2, \& 4, \& 6, \& 8, \& 10, \& \dots \}
-  \end{diagram}
-\end{frame}
-
-\begin{frame}{Surprise \#1 - Subsets}
-  \centering
-  $\{1,4,9,16,25,\dots\} \subseteq \{1,2,3,4,5,\dots\}$ \pause
-
-  \begin{diagram}
-    \{ 1, \arrow[d, leftrightarrow] \& 2, \arrow[d, leftrightarrow] \& 3, \arrow[d, leftrightarrow] \& 4, \arrow[d, leftrightarrow] \& 5, \arrow[d, leftrightarrow] \& \dots \} \\
-    \{ 1, \& 4, \& 9, \& 16, \& 25, \& \dots \}
   \end{diagram}
 \end{frame}
 
@@ -223,7 +219,7 @@
 
 
 \begin{frame}{Surprise \#1 - Subsets}
-  \centering
+  \centering \pause
   So infinity is infinity is infinity then... right? \pause
   No!
 \end{frame}
@@ -234,21 +230,12 @@
 \end{frame}
 
 \begin{frame}{Surprise \#2 - Sizes}
-  The Cantor Set \\
-  $2^\omega$ = \{00000000\dots, 111111111\dots, 10101010\dots, 00110100\dots, 11111010\dots, \dots\}\\
-  = {all infinite binary sequences} \\ \pause
+  The Cantor Set \\ \pause
+  $2^\omega$ = \{all infinite binary sequences\} \\
+  = \{00000000\dots, 111111111\dots, 10101010\dots, 00110100\dots, 11111010\dots, \dots\}\\  \pause
   \vphantom{text}
 
   Can we count it?
-\end{frame}
-
-\begin{frame}{Surprise \#2 - Sizes}
-  The Cantor Set \\
-  $2^\omega$ = \{00000000\dots, 111111111\dots, 10101010\dots, 00110100\dots, 11111010\dots, \dots\}\\
-  = {all infinite binary sequences} \\ \pause
-  \vphantom{text}
-
-  Can we count it? \pause No, we can't?!
 \end{frame}
 
 \begin{frame}[standout]
@@ -257,6 +244,7 @@
 \end{frame}
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     &  \\
@@ -274,6 +262,7 @@
 \end{frame}
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     &  \hl 0 \\
@@ -291,6 +280,7 @@
 \end{frame}
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     &  0 & \hl 1 \\
@@ -308,6 +298,7 @@
 \end{frame}
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     &  0 & 1 & \hl 0 \\
@@ -325,6 +316,7 @@
 \end{frame}
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     &  0 & 1 & 0 & \hl 0 \\
@@ -342,6 +334,7 @@
 \end{frame}
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     &  0 & 1 & 0 & 0 & \hl 0 \\
@@ -360,6 +353,7 @@
 
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     &  0 & 1 & 0 & 0 & 0 & \hl 0\\
@@ -377,6 +371,7 @@
 \end{frame}
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     & 0 & 1 & 0 & 0 & 0 & 0 & \hl 1 \\
@@ -395,6 +390,7 @@
 
 
 \begin{frame}
+  \centering
   \begin{tabular}{ | c | c c c c c c c c c }
     \hline
     & \hl 0 & \hl 1 & \hl 0 & \hl 0 & \hl 0 & \hl 0 & \hl 1 & \dots \\
@@ -432,6 +428,7 @@
 \end{frame}
 
 \begin{frame}{Infinitely Many Infinities}
+  \centering
   It keeps on going! \pause \\
   $\aleph_\omega$
 \end{frame}
